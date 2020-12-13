@@ -1,7 +1,11 @@
 #RATORI-game
+from modules import game
 
-def print_hi(name):
-    print(f'Hi, {name}')
+current_version = 1 #Запрос версии с интернета
 
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    local_version = game.local_version
+    if local_version < current_version:
+        print("Вышла новая версия")
+    else:
+        game.game_cycle()
