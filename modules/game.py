@@ -1,38 +1,33 @@
 import pygame
+from modules.Class1 import class1
 
 local_version = 1
 
 pygame.init()
 g = pygame.display.set_mode((800, 600))
+icon = pygame.image.load('images\\icon.png')
 pygame.display.set_caption('RATORI')
-icon = pygame.image.load('images\\icon.ico')
+game_music = pygame.mixer.music.load('sounds\\audio.mp3')
+sound = pygame.mixer.Sound('sounds\\sound.wav')
 image = pygame.image.load('images\\BG.png')
 pygame.display.set_icon(icon)
+font = pygame.font.SysFont('serif', 32)
+msg = 'Hello World'
+text = font.render(msg, True, 'grey')
 game_state = True
+class1 = class1()
+
 def game_cycle():
+    pygame.mixer.music.play(-1)
+    pygame.mixer.Sound.play(sound)
     while game_state:
         for e in pygame.event.get():
             if e.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-
-        g.fill('brown')
-        #pygame.draw.line(g, 'yellow', (50, 50), (500, 100), 1)
-        #pygame.draw.aaline(g, 'yellow', (50, 150), (500, 200), 1)
-        #pygame.draw.line(g, 'red', (250, 50), (300, 200), 1)
-
-        #pygame.draw.rect(g, 'black', (100, 100, 300, 300), 5)
-        #pygame.draw.circle(g, 'white', (400, 400), 100, 5)
-        #pygame.draw.ellipse(g, 'purple', (500, 300, 200, 100), 5)
-        #pygame.draw.arc(g, 'orange', (300, 200, 400, 250), 6, 3, 3)
-
-        #g.blit(image, (125, 325))
-
-        pygame.draw.line(g, (139, 69, 19), (400, 125), (400, 500), 30)
-        pygame.draw.rect(g, 'darkgreen', (300, 350, 200, 100))
-        pygame.draw.rect(g, 'darkgreen', (325, 250, 150, 100))
-        pygame.draw.rect(g, 'darkgreen', (350, 150, 100, 100))
-        pygame.draw.rect(g, 'darkgreen', (375, 100, 50, 50))
+        class1.draw(g)
+        g.blit(image, (125, 325))
+        g.blit(text, (300, 50))
 
         pygame.time.Clock().tick(60)
         pygame.display.update()
