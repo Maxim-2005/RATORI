@@ -3,7 +3,6 @@ import pygame
 class class1(object):
     pygame.init()
     game_music = pygame.mixer.music.load('sounds\\audio.mp3')
-    sound = pygame.mixer.Sound('sounds\\sound.wav')
     image = pygame.image.load('images\\BG.png')
     font = pygame.font.SysFont('serif', 32)
     msg = 'Hello World'
