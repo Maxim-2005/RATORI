@@ -29,7 +29,9 @@ class Main(object):
     def game_cycle(self):
         g = pg.display.get_surface()
 
+        # Игровой цикл
         while self.game_state:
+            # Игровые события
             for e in pg.event.get():
                 # Выход из игры
                 if e.type == pg.QUIT:
@@ -45,6 +47,11 @@ class Main(object):
                 # Меню/Игра
                 if e.type == pg.KEYDOWN and e.key == pg.K_ESCAPE:
                     self.menu_state = not self.menu_state
+
+            if self.menu_state == True:
+                self.menu.update(e)
+            else:
+                self.game.update(e)
 
             # Обновление меню
             if self.menu_state:
