@@ -31,3 +31,11 @@ class class1(object):
 
         pygame.draw.lines(g, 'yellow', False, [(100, 100), (200, 200), (100, 200)], 5)
         pygame.draw.polygon(g, 'yellow', ((100, 200), (300, 10), (36, 80), (49, 341)), 5)
+
+        # Проверка колизии
+        def TEST(self, pos):
+            if (pos[0] > self.rect.x and pos[0] < self.rect.x + self.rect.width
+                    and pos[1] > self.rect.y and pos[1] < self.rect.y + self.rect.height):
+                return True
+            else:
+                return False
