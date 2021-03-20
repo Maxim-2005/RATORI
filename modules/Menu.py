@@ -26,8 +26,6 @@ class Menu(object):
                 self.list_button[i].rect.x = btn_pos[0]
                 self.list_button[i].rect.y = btn_pos[1]
 
-        if e.type == pg.MOUSEMOTION:
-            self.button_action = None
         pos = pg.mouse.get_pos()
         click = pg.mouse.get_pressed(3)
         for button in self.list_button:
@@ -38,6 +36,7 @@ class Menu(object):
                     self.function(button.name)
                 else:
                     button.pressed = False
+                    self.button_action = None
             else:
                 button.focus = False
             button.update()
@@ -50,9 +49,25 @@ class Menu(object):
             button.draw(g)
 
     def function(self, button_name):
-        if button_name == 'exit':
-            pg.quit()
-            quit()
+        if button_name != self.button_action:
+            self.button_action = button_name
+            if button_name == self.button_name[0]:
+                print('нажатак кнопка:', button_name)
+            if button_name == self.button_name[1]:
+                print('нажатак кнопка:', button_name)
+            if button_name == self.button_name[2]:
+                print('нажатак кнопка:', button_name)
+            if button_name == self.button_name[3]:
+                print('нажатак кнопка:', button_name)
+            if button_name == self.button_name[4]:
+                print('нажатак кнопка:', button_name)
+            if button_name == self.button_name[5]:
+                print('нажатак кнопка:', button_name)
+            if button_name == self.button_name[6]:
+                print('нажатак кнопка:', button_name)
+            if button_name == self.button_name[7]:
+                pg.quit()
+                quit()
 
     def position(self, i):
         """"Позиция"""
