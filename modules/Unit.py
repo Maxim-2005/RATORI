@@ -12,8 +12,6 @@ class Unit(object):
 
     # Отрисовка юнмта
     def draw(self, g):
-        self.rect.y += 1
         if self.rect.y == 150:
             pg.mixer.Sound.play(self.sound)
-
         g.blit(self.image, self.rect)
